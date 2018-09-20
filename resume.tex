@@ -38,11 +38,11 @@
 \definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
 \definecolor{textcolor}{HTML}{262626} %% charcoal grey
 
-\newcommand{\TitleFont}[1]{\textnormal{\fontsize{35pt}{0}\selectfont #1}}
+\newcommand{\TitleFont}[1]{\textnormal{\fontsize{40pt}{0}\selectfont #1}}
 \makeheadstyles{default}{
   \setaftersecskip{0.5em}
-  \setbeforesecskip{1.0em}
-  \setsecheadstyle{\normalfont\large\bfseries\scshape\raggedright\color{headercolor}}%
+  \setbeforesecskip{0.5em}
+  \setsecheadstyle{\normalfont\large\bfseries\raggedright\color{headercolor}}%
 }
 \headstyles{default}
 
@@ -103,14 +103,16 @@
   % \TitleFont{Brooke Dolny} \newline {\textbullet \textsc{ 2A Software Engineering } \textbullet}
 
 \begin{tabular*}{\textwidth}{p{20em}@{\extracolsep{\fill}}r}%
-  \TitleFont{\color{titlecolor} Brooke Dolny} \newline { \cdot ~ \textnormal{Math and Cryptography Enthusiast} ~\cdot}
+  \TitleFont{\color{titlecolor} Brooke Dolny}
+
+  {\textnormal{Software Engineering Student}}
   &
   \begin{tabular}{rc}
     % (905) 407--6282 & \phone\\
     \url{bmdolny@uwaterloo.ca} & \email\\
     \url{github.com/brookedolny} & \github\\
     \url{linkedin.com/in/brookedolny} & \linkedin
-    \vspace{-0.08em}
+    \vspace{-0.1em}
     \end{tabular}%\\  \hline
 \end{tabular*}
 {\color{titlecolor} \rule{\textwidth}{0.1em}}
