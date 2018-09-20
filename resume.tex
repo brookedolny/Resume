@@ -1,0 +1,229 @@
+\documentclass[oneside, 12pt]{memoir}
+
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{graphbox}
+\usepackage{url}
+\usepackage{xcolor}
+
+% ------------------------------------------------------------------------------
+% PAGE STYLING
+%
+\pagestyle{plain}
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+\setlength{\partopsep}{0em}
+
+\setheadfoot{0em}{1em}
+\setlrmarginsandblock{0.75in}{0.75in}{*} % left/right margins
+\setulmarginsandblock{0.75in}{0.5in}{*} % upper/lower margins
+
+\checkandfixthelayout
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% FONT STYLING
+%
+\setmainfont[Ligatures=TeX, BoldFont=Lato-Bold]{Lato}
+\newfontfamily\Merriweather{Merriweather-Light}[Ligatures=TeX]
+\newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
+\setmonofont[Ligatures=TeX]{Lato}
+% \setmonofont[Ligatures=TeX]{Menlo-Regular}
+
+\definecolor{titlecolor}{HTML}{1A237E} %% dark purple
+\definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
+\definecolor{textcolor}{HTML}{262626} %% charcoal grey
+
+\newcommand{\TitleFont}[1]{\textnormal{\fontsize{35pt}{0}\selectfont #1}}
+\makeheadstyles{default}{
+  \setaftersecskip{0.5em}
+  \setbeforesecskip{1.0em}
+  \setsecheadstyle{\normalfont\large\bfseries\scshape\raggedright\color{headercolor}}%
+}
+\headstyles{default}
+
+
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% RESUME "ENTRY" COMMANDS
+%
+
+% % OLD COMMANDS
+\newcommand{\entryGeneral}[4]{
+  \begin{adjustwidth}{0.3em}{0em}%
+  \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.0em}
+    \begin{flushleft}
+      {\Merriweather \small #4}%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  \hfill
+}
+
+\newcommand{\entrySimple}[3]{
+  \begin{adjustwidth}{0.3em}{0em}%
+  \textbf{#1}\sourceatright{\Date \small #2}%
+  \begin{adjustwidth}{0.5em}{2.0em}%
+    \begin{flushleft}
+      {\Merriweather \small #3}
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  \hfill
+}
+
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% ICONS
+
+\newcommand{\github}{\includegraphics[align=b,height=0.8em]{icons/github.png}}
+\newcommand{\linkedin}{\includegraphics[align=b,height=0.8em]{icons/in.png}}
+\newcommand{\email}{\includegraphics[align=b,height=0.8em]{icons/email.png}}
+\newcommand{\phone}{\includegraphics[align=b,height=0.8em]{icons/phone.png}}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% RESUME
+%
+\begin{document}
+\color{textcolor}
+% ******************************************************************************
+% TITLE
+    %% with byline
+  % \TitleFont{Brooke Dolny} \newline {\textbullet \textsc{ 2A Software Engineering } \textbullet}
+
+\begin{tabular*}{\textwidth}{p{20em}@{\extracolsep{\fill}}r}%
+  \TitleFont{\color{titlecolor} Brooke Dolny} \newline { \cdot ~ \textnormal{Math and Cryptography Enthusiast} ~\cdot}
+  &
+  \begin{tabular}{rc}
+    % (905) 407--6282 & \phone\\
+    \url{bmdolny@uwaterloo.ca} & \email\\
+    \url{github.com/brookedolny} & \github\\
+    \url{linkedin.com/in/brookedolny} & \linkedin
+    \vspace{-0.08em}
+    \end{tabular}%\\  \hline
+\end{tabular*}
+{\color{titlecolor} \rule{\textwidth}{0.1em}}
+%
+% ******************************************************************************
+% ******************************************************************************
+% WORK EXPERIENCE
+\section*{Experience}
+
+\entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018---Aug 2018}{
+  \begin{itemize}
+    \itemsep 0.25em
+    \item{
+      Revitalized a data analytics software for use in clinical studies.
+    }
+    \item{
+      Fixed bug in hashing function, introduced by a change of platform,
+      allowing over 8000 users to login after weeks of lockout; introduced
+      better C programming practices as a result.
+    }
+    \item{
+      Designed an API endpoint that resulted in up to 4.5x faster page load
+      times for a web application.
+    }
+    \item{
+      Restructured components of a JavaScript codebase to improve readability
+      and maintainability.
+    }
+    \item{
+      Identified and reported security flaws and vulnerabilities in C, C++, and
+      JavaScript codebases.
+    }
+  \end{itemize}
+}
+
+\entryGeneral{Junior Developer}{ESM}{Jun 2017---Aug 2017}{
+  \begin{itemize}
+    \itemsep 0.25em
+    \item{
+      Utilized the principles of Behavior Driven Development to develop test
+      cases for a web-based software in Ruby
+    }
+    \item{Identified and fixed numerous bugs in the codebase.}
+  \end{itemize}
+}
+%
+\vspace{-1.0em}
+%
+% ******************************************************************************
+% ******************************************************************************
+% Projects
+\section*{Projects}
+
+\entrySimple{Personal Cryptographic Library}{Present}{
+  \begin{itemize}
+    \itemsep 0.25em
+    \item{
+      Contains a working implementation of the Advanced Encryption Standard
+      with CBC and ECB operational modes, and the Secure Hash Algorithm 2
+      suite of cryptographic hashes.
+    }
+  \end{itemize}
+}
+
+\entrySimple{Fractal Generator}{Apr 2018}{
+  \begin{itemize}
+    \itemsep 0.25em
+    \item{
+        A fractal art generating program written in Java that supports the
+        Mandelbrot and Julia sets.
+    }
+    \item{
+        Leverages parallel programming to improve performance by using a worker pool.
+    }
+    \item{
+        Utilizes the principles of object-oriented programming to improve readability.
+    }
+  \end{itemize}
+}
+
+\entrySimple{Traffic Simulator (Traffix)}{Nov 2017}{
+  \begin{itemize}
+    \itemsep 0.25em
+    \item{
+      Traffix simulates traffic flow in an arbitrary city defined by a graph.
+    }
+    \item{
+      A graphical interface presents to the user a real-time view of congestion
+      and traffic patterns.
+    }
+    \item{The application was written in C++ with the Qt framework.}
+  \end{itemize}
+}
+\vspace{-1.0em}
+%%%%%%%%% EDUCATION
+\section*{Education}
+\entryGeneral{Candidate for Bachelor of Software Engineering}{University of Waterloo}{2022}{
+    \begin{itemize}
+        \itemsep 0.25em
+        \item{
+            Term Dean’s Honour List, December 2017
+        }
+        \item{
+            President’s Scholarship with Distinction
+        }
+    \end{itemize}
+}
+
+%
+% ******************************************************************************
+
+
+
+\end{document}
+% ------------------------------------------------------------------------------
+\endinput

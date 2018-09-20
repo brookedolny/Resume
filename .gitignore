@@ -1,0 +1,8 @@
+# tex intermediate files
+ 
+*.aux
+*.log
+memoir_manual.pdf
+
+# mac stuff`:
+.DS_Store
