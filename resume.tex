@@ -14,12 +14,12 @@
 \makeoddfoot{plain}{}{}{}
 
 \setlength{\parindent}{0em}
-\setlength{\parskip}{0.25em}
-\setlength{\partopsep}{0.25em}
+\setlength{\parskip}{0.3em}
+\setlength{\partopsep}{0.3em}
 
-\setheadfoot{0.25em}{0.2em}
+\setheadfoot{0.3em}{0.3em}
 \setlrmarginsandblock{0.75in}{0.75in}{*} % left/right margins
-\setulmarginsandblock{0.5in}{0.5in}{*} % upper/lower margins
+\setulmarginsandblock{0.6in}{0.6in}{*} % upper/lower margins
 
 \checkandfixthelayout
 %
@@ -57,7 +57,7 @@
 \newcommand{\entryGeneral}[4]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
-  \begin{adjustwidth}{0.5em}{2.0em}
+  \begin{adjustwidth}{0.5em}{2.5em}
     \begin{flushleft}
       {\Merriweather \small #4}%
     \end{flushleft}
@@ -69,7 +69,7 @@
 \newcommand{\entrySimple}[3]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}\sourceatright{\Date \small #2}%
-  \begin{adjustwidth}{0.5em}{2.0em}%
+  \begin{adjustwidth}{0.5em}{2.5em}%
     \begin{flushleft}
       {\Merriweather \small #3}
     \end{flushleft}
@@ -121,8 +121,9 @@
 % WORK EXPERIENCE
 \section*{Experience}
 
-\entryGeneral{Secure Embedded Developer}{ESCRYPT}{Jan 2019---Apr 2019}{
+\entryGeneral{Secure Embedded Developer}{ESCRYPT}{Jan 2019---Present}{
     \begin{itemize}
+        \itemsep 0.3em
         \item {
             Contributed to a mobile phone to car communication scheme for use in commercial vehicles
          }
@@ -131,6 +132,7 @@
 
 \entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018---Aug 2018}{
   \begin{itemize}
+    \itemsep 0.3em
     \item{
       Revitalized a data analytics software for use in clinical studies.
     }
@@ -156,9 +158,10 @@
 
 \entryGeneral{Electrical Team Member}{University of Waterloo Rocketry Team}{Oct 2018---Present}{
     \begin{itemize}
+        \itemsep 0.3em
         \item{
             Wrote drivers for PIC microcontrollers controlling the various
-            electrical components of the rocket
+            electrical components of the rocket, competing in the IREC
         }
         \item{
             Interfaced with an external CAN module over SPI to communicate with other microcontrollers
@@ -174,6 +177,7 @@
 
 \entrySimple{Personal Cryptographic Library}{Present}{
   \begin{itemize}
+    \itemsep 0.3em
     \item{
       Contains a working implementation of the Advanced Encryption Standard
       with CBC and ECB operational modes, and the Secure Hash Algorithm 2
@@ -184,6 +188,7 @@
 
 \entrySimple{Fractal Generator}{Apr 2018}{
   \begin{itemize}
+    \itemsep 0.3em
     \item{
         A fractal art generating program written in Java that supports the
         Mandelbrot and Julia sets.
@@ -199,6 +204,7 @@
 
 \entrySimple{Traffic Simulator (Traffix)}{Nov 2017}{
   \begin{itemize}
+    \itemsep 0.3em
     \item{
       Simulates traffic flow in an arbitrary city defined by a graph.
     }
@@ -214,6 +220,10 @@
 \section*{Education}
 \entryGeneral{Candidate for Bachelor of Software Engineering}{University of Waterloo}{2022}{
     \begin{itemize}
+        \itemsep 0.3em
+        \item{
+            Joint Honours in Pure Mathematics
+        }
         \item{
             Term Dean’s Honour List, December 2017
         }
