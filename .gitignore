@@ -1,8 +1,15 @@
 # tex intermediate files
- 
+
 *.aux
 *.log
 memoir_manual.pdf
 
-# mac stuff`:
+# Binary files
+*.zip
+
+# mac stuff:
 .DS_Store
+
+# rough copies
+robo*
+CV/*

@@ -1,4 +1,4 @@
-\documentclass[oneside, 12pt]{memoir}
+\documentclass[oneside, 11pt]{memoir}
 
 \usepackage{fontspec}
 \usepackage{graphicx}
@@ -14,12 +14,12 @@
 \makeoddfoot{plain}{}{}{}
 
 \setlength{\parindent}{0em}
-\setlength{\parskip}{0em}
-\setlength{\partopsep}{0em}
+\setlength{\parskip}{0.25em}
+\setlength{\partopsep}{0.25em}
 
-\setheadfoot{0em}{1em}
+\setheadfoot{0.25em}{0.2em}
 \setlrmarginsandblock{0.75in}{0.75in}{*} % left/right margins
-\setulmarginsandblock{0.75in}{0.5in}{*} % upper/lower margins
+\setulmarginsandblock{0.5in}{0.5in}{*} % upper/lower margins
 
 \checkandfixthelayout
 %
@@ -38,9 +38,9 @@
 \definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
 \definecolor{textcolor}{HTML}{262626} %% charcoal grey
 
-\newcommand{\TitleFont}[1]{\textnormal{\fontsize{40pt}{0}\selectfont #1}}
+\newcommand{\TitleFont}[1]{\textnormal{\fontsize{30pt}{0}\selectfont #1}}
 \makeheadstyles{default}{
-  \setaftersecskip{0.5em}
+  \setaftersecskip{0.25em}
   \setbeforesecskip{0.5em}
   \setsecheadstyle{\normalfont\large\bfseries\raggedright\color{headercolor}}%
 }
@@ -54,7 +54,6 @@
 % RESUME "ENTRY" COMMANDS
 %
 
-% % OLD COMMANDS
 \newcommand{\entryGeneral}[4]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
@@ -64,7 +63,7 @@
     \end{flushleft}
   \end{adjustwidth}
   \end{adjustwidth}
-  \hfill
+  % \hfill
 }
 
 \newcommand{\entrySimple}[3]{
@@ -76,7 +75,7 @@
     \end{flushleft}
   \end{adjustwidth}
   \end{adjustwidth}
-  \hfill
+  % \hfill
 }
 
 %
@@ -122,9 +121,16 @@
 % WORK EXPERIENCE
 \section*{Experience}
 
+\entryGeneral{Secure Embedded Developer}{ESCRYPT}{Jan 2019---Apr 2019}{
+    \begin{itemize}
+        \item {
+            Contributed to a mobile phone to car communication scheme for use in commercial vehicles
+         }
+    \end{itemize}
+}
+
 \entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018---Aug 2018}{
   \begin{itemize}
-    \itemsep 0.25em
     \item{
       Revitalized a data analytics software for use in clinical studies.
     }
@@ -134,32 +140,32 @@
       better C programming practices as a result.
     }
     \item{
-      Designed an API endpoint that resulted in up to 4.5x faster page load
-      times for a web application.
+      Designed an API endpoint that resulted in up to 4.5x faster page load times for a web application.
     }
     \item{
-      Restructured components of a JavaScript codebase to improve readability
-      and maintainability.
+      Restructured components of a JavaScript codebase to improve readability and maintainability.
     }
     \item{
-      Identified and reported security flaws and vulnerabilities in C, C++, and
-      JavaScript codebases.
+      Reported security flaws and vulnerabilities in C, C++, and JavaScript codebases.
     }
   \end{itemize}
 }
 
-\entryGeneral{Junior Developer}{ESM}{Jun 2017---Aug 2017}{
-  \begin{itemize}
-    \itemsep 0.25em
-    \item{
-      Utilized the principles of Behavior Driven Development to develop test
-      cases for a web-based software in Ruby
-    }
-    \item{Identified and fixed numerous bugs in the codebase.}
-  \end{itemize}
+%%% Extracurriculars
+\section*{Relevant Experience}
+
+\entryGeneral{Electrical Team Member}{University of Waterloo Rocketry Team}{Oct 2018---Present}{
+    \begin{itemize}
+        \item{
+            Wrote drivers for PIC microcontrollers controlling the various
+            electrical components of the rocket
+        }
+        \item{
+            Interfaced with an external CAN module over SPI to communicate with other microcontrollers
+        }
+    \end{itemize}
 }
-%
-\vspace{-1.0em}
+
 %
 % ******************************************************************************
 % ******************************************************************************
@@ -168,18 +174,16 @@
 
 \entrySimple{Personal Cryptographic Library}{Present}{
   \begin{itemize}
-    \itemsep 0.25em
     \item{
       Contains a working implementation of the Advanced Encryption Standard
       with CBC and ECB operational modes, and the Secure Hash Algorithm 2
-      suite of cryptographic hashes.
+      suite of cryptographic hashes, written in C.
     }
   \end{itemize}
 }
 
 \entrySimple{Fractal Generator}{Apr 2018}{
   \begin{itemize}
-    \itemsep 0.25em
     \item{
         A fractal art generating program written in Java that supports the
         Mandelbrot and Julia sets.
@@ -195,9 +199,8 @@
 
 \entrySimple{Traffic Simulator (Traffix)}{Nov 2017}{
   \begin{itemize}
-    \itemsep 0.25em
     \item{
-      Traffix simulates traffic flow in an arbitrary city defined by a graph.
+      Simulates traffic flow in an arbitrary city defined by a graph.
     }
     \item{
       A graphical interface presents to the user a real-time view of congestion
@@ -206,12 +209,11 @@
     \item{The application was written in C++ with the Qt framework.}
   \end{itemize}
 }
-\vspace{-1.0em}
+
 %%%%%%%%% EDUCATION
 \section*{Education}
 \entryGeneral{Candidate for Bachelor of Software Engineering}{University of Waterloo}{2022}{
     \begin{itemize}
-        \itemsep 0.25em
         \item{
             Term Dean’s Honour List, December 2017
         }
