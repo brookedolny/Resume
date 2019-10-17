@@ -11,5 +11,4 @@ memoir_manual.pdf
 .DS_Store
 
 # rough copies
-robo*
-CV/*
+ignore/*

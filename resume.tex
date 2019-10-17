@@ -5,6 +5,7 @@
 \usepackage{graphbox}
 \usepackage{url}
 \usepackage{xcolor}
+% \usepackage{titlesec}
 
 % ------------------------------------------------------------------------------
 % PAGE STYLING
@@ -29,6 +30,7 @@
 % FONT STYLING
 %
 \setmainfont[Ligatures=TeX, BoldFont=Lato-Bold]{Lato}
+% \titleformat*{\section}{\large}
 \newfontfamily\Merriweather{Merriweather-Light}[Ligatures=TeX]
 \newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
 \setmonofont[Ligatures=TeX]{Lato}
@@ -104,7 +106,7 @@
 \begin{tabular*}{\textwidth}{p{20em}@{\extracolsep{\fill}}r}%
   \TitleFont{\color{titlecolor} Brooke Dolny}
 
-  {\textnormal{ Software Engineering Student}}
+  {\textnormal{ Software Engineer}}
   &
   \begin{tabular}{rc}
     % (905) 407--6282 & \phone\\
@@ -121,12 +123,31 @@
 % WORK EXPERIENCE
 \section*{Experience}
 
-\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019---Present}{
+\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019---Apr 2019}{
     \begin{itemize}
         \itemsep 0.3em
         \item {
-            Worked on the CycurV2X SDK team, developing secure vehicle to vehicle and vehicle to infrastructure communication.
+            Contributed to the CycurV2X Software, developing secure vehicle to vehicle communication with C++11.
          }
+         \item{
+            Implemented a parallelized manager for validating the format of different types of V2X
+            messages conforming to North American and European transportation standards.
+         }
+         \item{
+            Identified and resolved race conditions throughout the codebase.
+         }
+         \item{
+            Modernized C++ codebase.
+         }
+         \item{
+            Wrote and improved on documentation for the implementation details of various classes and build processes.
+         }
+         \item{
+            Ran retrospective meetings as part of the team's agile process.
+         }
+         %% Changed encoding of certificates
+         %% Working with hashes (fixing the encoding of hashes)
+         %% Work in other crypto stuff
     \end{itemize}
 }
 
@@ -137,8 +158,7 @@
       Revitalized a data analytics software for use in clinical studies.
     }
     \item{
-      Fixed bug in hashing function, introduced by a change of platform,
-      allowing over 8000 users to login after weeks of lockout; introduced
+      Fixed bug in hashing function allowing over 8000 users to login after weeks of lockout; introduced
       better C programming practices as a result.
     }
     \item{
@@ -148,7 +168,7 @@
       Restructured components of a JavaScript codebase to improve readability and maintainability.
     }
     \item{
-      Reported security flaws and vulnerabilities in C, C++, and JavaScript codebases.
+      Created a report on security flaws and vulnerabilities in C, C++, and JavaScript codebases.
     }
   \end{itemize}
 }
@@ -159,13 +179,12 @@
 % Projects
 \section*{Projects}
 
-\entrySimple{Personal Cryptographic Library}{Present}{
+\entrySimple{Personal Cryptographic Library}{April 2019}{
   \begin{itemize}
     \itemsep 0.3em
     \item{
-      Contains a working implementation of the Advanced Encryption Standard
-      with CBC and ECB operational modes, and the Secure Hash Algorithm 2
-      suite of cryptographic hashes, written in C.
+      Developed a working implementation of the AES with CBC and ECB operational modes,
+      and SHA2 suite of cryptographic hashes, written in C.
     }
   \end{itemize}
 }
@@ -181,7 +200,8 @@
         Leverages parallel programming to improve performance by using a worker pool.
     }
     \item{
-        Utilizes the principles of object-oriented programming to improve readability.
+        Utilizes the principles of OOP to improve readability.
+        %% Utilizes the principles of object-oriented programming to improve readability.
     }
   \end{itemize}
 }
@@ -206,9 +226,6 @@
     \begin{itemize}
         \itemsep 0.3em
         \item{
-            Joint Honours in Pure Mathematics
-        }
-        \item{
             Electrical Team Member, UW Rocketry Student Design Team
         }
         \item{
@@ -216,6 +233,12 @@
         }
     \end{itemize}
 }
+
+\section*{Interests}
+{
+    \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Reading, Math, Marvel (MCU)
+}
+
 
 %
 % ******************************************************************************
