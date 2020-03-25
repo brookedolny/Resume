@@ -56,6 +56,11 @@
 % RESUME "ENTRY" COMMANDS
 %
 
+\newcommand{\lmr}{\fontfamily{lmr}\selectfont} % Latin Modern Roman
+\newcommand{\LaTeXSkill}{\lmr \LaTeX}
+
+\newcommand{\spaceddot}[0]{~\cdot~}
+
 \newcommand{\entryGeneral}[4]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
@@ -79,6 +84,30 @@
   \end{adjustwidth}
   % \hfill
 }
+
+\newcommand{\entrySkills}[2]{
+  % \vspace{-0.2em}
+  \begin{adjustwidth}{2.75em}{0em}%
+  {\Merriweather \small #1}\spaceddot{\Merriweather \small #2}
+  \end{adjustwidth}
+  \vspace{-0.2em}
+}
+
+% \newcommand{\entrySkills}[4]{
+%   % \vspace{-0.2em}
+%   \begin{adjustwidth}{0.3em}{0em}%
+%   \textbf{#1}\spaceddot{\small #2}\sourceatright{\textbf{#3}\spaceddot {\small #4}}
+%   \end{adjustwidth}
+%   % \vspace{-0.2em}
+% }
+
+% \newcommand{\entrySkills}[2]{
+%   \vspace{-0.2em}
+%   \begin{adjustwidth}{0.3em}{0em}%
+%   \textbf{#1}\qquad{#2}%
+%   \end{adjustwidth}
+%   \vspace{-0.2em}
+% }
 
 %
 % ------------------------------------------------------------------------------
@@ -117,23 +146,49 @@
     \end{tabular}%\\  \hline
 \end{tabular*}
 {\color{titlecolor} \rule{\textwidth}{0.1em}}
+
+
+\section*{Languages and Technologies}
+    \entrySkills{
+        C++ \spaceddot C \spaceddot Java \spaceddot C\# \spaceddot Python \spaceddot Bash
+    }{
+        Git \spaceddot UNIX \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
+    }
+
+% \section*{Skills}
+%     \entrySkills{Languages}{
+%         C++ \spaceddot C \spaceddot C\# \spaceddot Python \spaceddot Java \spaceddot Bash
+%     }{Technologies}{
+%         Git \spaceddot UNIX \spaceddot gdb \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
+%     }
+
+
+% \section*{Skills}
+%     \entrySkills{Languages}{
+%         C++ \spaceddot C \spaceddot C\# \spaceddot Python \spaceddot Java \spaceddot Bash \spaceddot Javascript
+%     }
+%     \entrySkills{Technologies}{
+%         Git \spaceddot UNIX \spaceddot QNX \spaceddot gdb \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
+%     }
+
+
 %
 % ******************************************************************************
 % ******************************************************************************
 % WORK EXPERIENCE
 \section*{Experience}
 
-\entryGeneral{Software Development Student}{BlackBerry}{Sept 2019---Dec 2019}{
+\entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019---Dec 2019}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
                 Developed security solutions for vehicles by integrating Cylance technologies into QNX.
             }
             \item {
-                Designed and implemented a consumer--producer system for processing vehicle messages efficiently.
+                Designed and implemented a consumer--producer system in C++ for processing vehicle messages efficiently.
             }
             \item {
-                Implemented a state machine for identifying a driver based on vehicle data.
+                Implemented a state machine in C\# for identifying a driver based on vehicle data.
             }
             \item {
                 Wrote an asynchronous interface for receiving messages from a gRPC stream.
@@ -145,11 +200,10 @@
     \begin{itemize}
         \itemsep 0.3em
         \item {
-            Contributed to the CycurV2X Software, developing secure vehicle to vehicle communication with C++.
+            Developed secure vehicle to vehicle communication with C++.
          }
          \item{
-            Implemented a parallelized manager for validating the format of different types of V2X
-            messages conforming to North American and European transportation standards.
+            Implemented a parallelized manager for validating the format of messages.
          }
          \item{
             Identified and resolved race conditions throughout the codebase.
@@ -180,7 +234,7 @@
       Designed an API endpoint that resulted in up to 4.5x faster page load times for a web application.
     }
     \item{
-      Created a report on security flaws and vulnerabilities in C, C++, and JavaScript codebases.
+      Created a report on security flaws and vulnerabilities in C, C++, and Javascript codebases.
     }
   \end{itemize}
 }
@@ -211,10 +265,10 @@
     \item{
         Leverages parallel programming to improve performance by using a worker pool.
     }
-    \item{
-        Utilizes the principles of OOP to improve readability.
-        %% Utilizes the principles of object-oriented programming to improve readability.
-    }
+    % \item{
+    %     Utilizes the principles of OOP to improve readability.
+    %     %% Utilizes the principles of object-oriented programming to improve readability.
+    % }
   \end{itemize}
 }
 
@@ -245,7 +299,7 @@
 
 \section*{Interests}
 {
-    \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Reading, Math, Marvel (MCU)
+    \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Math
 }
 
 
