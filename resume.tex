@@ -64,7 +64,7 @@
 \newcommand{\entryGeneral}[4]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
-  \begin{adjustwidth}{0.5em}{2.5em}
+  \begin{adjustwidth}{0.5em}{2.75em}
     \begin{flushleft}
       {\Merriweather \small #4}%
     \end{flushleft}
@@ -76,7 +76,7 @@
 \newcommand{\entrySimple}[3]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}\sourceatright{\Date \small #2}%
-  \begin{adjustwidth}{0.5em}{2.5em}%
+  \begin{adjustwidth}{0.5em}{2.75em}%
     \begin{flushleft}
       {\Merriweather \small #3}
     \end{flushleft}
@@ -150,7 +150,7 @@
 
 \section*{Languages and Technologies}
     \entrySkills{
-        C++ \spaceddot C \spaceddot Java \spaceddot C\# \spaceddot Python \spaceddot Bash
+        C++ \spaceddot C \spaceddot Java \spaceddot Python \spaceddot C\# \spaceddot Bash
     }{
         Git \spaceddot UNIX \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
     }
@@ -177,6 +177,28 @@
 % ******************************************************************************
 % WORK EXPERIENCE
 \section*{Experience}
+
+\entryGeneral{Software Developer Intern}{NVIDIA}{May 2020---Aug 2020}{
+    \begin{itemize}
+        \itemsep 0.3em
+            \item {
+                Contributed to the NVIDIA Omniverse Platform's C++ audio processing library.
+            }
+            \item {
+                Replaced unnecessary busy waiting with semaphores in the audio processing engine.
+            }
+            \item {
+                Identified and removed concurrency bugs in the codebase.
+            }
+            \item {
+                Designed and implemented an audio utilities interface containing sound clearing and volume
+                adjustment operations.
+            }
+            \item {
+                Resolved synchronization issues between Python and C++ audio libraries.
+            }
+    \end{itemize}
+}
 
 \entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019---Dec 2019}{
     \begin{itemize}
@@ -211,15 +233,6 @@
          \item{
             Modernized C++98 codebase to C++14.
          }
-         % \item{
-         %    Wrote documentation for the implementation details of various classes and build processes.
-         % }
-         \item{
-            Ran retrospective meetings as part of the team's agile process.
-         }
-         %% Changed encoding of certificates
-         %% Working with hashes (fixing the encoding of hashes)
-         %% Work in other crypto stuff
     \end{itemize}
 }
 
@@ -227,11 +240,10 @@
   \begin{itemize}
     \itemsep 0.3em
     \item{
-      Fixed bug in hashing function allowing over 8000 users to login after weeks of lockout; introduced
-      better C programming practices as a result.
+      Fixed bug in hashing function allowing over 8000 users to login after weeks of lockout.
     }
     \item{
-      Designed an API endpoint that resulted in up to 4.5x faster page load times for a web application.
+      Designed an API endpoint that resulted in up to 4.5x faster page load times for a web app.
     }
     \item{
       Created a report on security flaws and vulnerabilities in C, C++, and Javascript codebases.
@@ -265,26 +277,21 @@
     \item{
         Leverages parallel programming to improve performance by using a worker pool.
     }
-    % \item{
-    %     Utilizes the principles of OOP to improve readability.
-    %     %% Utilizes the principles of object-oriented programming to improve readability.
-    % }
   \end{itemize}
 }
 
-\entrySimple{Traffic Simulator (Traffix)}{Nov 2017}{
-  \begin{itemize}
-    \itemsep 0.3em
-    \item{
-      Simulates traffic flow in an arbitrary city defined by a graph.
-    }
-    \item{
-      A graphical interface presents to the user a real-time view of congestion
-      and traffic patterns.
-    }
-    \item{The application was written in C++ with the Qt framework.}
-  \end{itemize}
-}
+% \entrySimple{Traffic Simulator (Traffix)}{Nov 2017}{
+%   \begin{itemize}
+%     \itemsep 0.3em
+%     \item{
+%       Simulates traffic flow in an arbitrary city defined by a graph in C++ with the Qt framework.
+%     }
+%     \item{
+%       A graphical interface presents to the user a real-time view of congestion
+%       and traffic patterns.
+%     }
+%   \end{itemize}
+% }
 
 %%%%%%%%% EDUCATION
 \section*{Education}
