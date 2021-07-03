@@ -1,9 +1,13 @@
 \documentclass[oneside, 11pt]{memoir}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{graphbox}
 \usepackage{url}
+\usepackage{hyperref}
 \usepackage{xcolor}
 % \usepackage{titlesec}
 
@@ -30,17 +34,17 @@
 % FONT STYLING
 %
 \setmainfont[Ligatures=TeX, BoldFont=Lato-Bold]{Lato}
-% \titleformat*{\section}{\large}
-\newfontfamily\Merriweather{Merriweather-Light}[Ligatures=TeX]
-% \newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
-% \newfontfamily\Merriweather{Alegreya}[Ligatures=]
-% \newcommand{\Merriweather}[0]{\fontfamily{qcr}\selectfont} % default
 
-% \newcommand{\Merriweather}[1]{\fontfamily{Alegreya}\selectfont #1}
-
-\newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
-\setmonofont[Ligatures=TeX]{Lato}
+\setmonofont[Ligatures=TeX]{IBMPlexMono}
+% \setmonofont[Ligatures=TeX]{Lato}
 % \setmonofont[Ligatures=TeX]{Menlo-Regular}
+
+% \newfontfamily\Merriweather{Merriweather-Light}[Ligatures=TeX]
+\newfontfamily{\Merriweather}{Lora}[Ligatures=TeX]
+
+% \newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
+\newfontfamily\Date{Lora-Italic}[Ligatures=TeX]
+
 
 \definecolor{titlecolor}{HTML}{1A237E} %% dark purple
 \definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
@@ -48,7 +52,7 @@
 
 \newcommand{\TitleFont}[1]{\textnormal{\fontsize{30pt}{0}\selectfont #1}}
 \makeheadstyles{default}{
-  \setaftersecskip{0.25em}
+  \setaftersecskip{0.3em}
   \setbeforesecskip{0.5em}
   \setsecheadstyle{\normalfont\large\bfseries\raggedright\color{headercolor}}%
 }
@@ -66,23 +70,57 @@
 \newdimen\origiwstr%
 \origiwspc=\fontdimen2\font% original inter word space
 \origiwstr=\fontdimen3\font% original inter word stretch
-\fontdimen3\font=\origiwstr% (original) inter word stretch
-\fontdimen2\font=0.25em% inter word space
+% \fontdimen3\font=\origiwstr% (original) inter word stretch
+% \fontdimen2\font=0.25em% inter word space
 
-\newcommand{\lmr}{\fontfamily{lmr}\selectfont} % Latin Modern Roman
-\newcommand{\LaTeXSkill}{\lmr \LaTeX}
+\newcommand{\lmr}[0]{\fontfamily{lmr}\selectfont} % Latin Modern Roman
+\newcommand{\LaTeXSkill}[0]{\lmr \LaTeX}
 
-\newcommand{\spaceddot}[0]{~\cdot~}
+\newcommand{\spaceddot}[0]{~$\cdot$~}
 
-\newcommand{\entryGeneral}[4]{
+\newcommand{\entryGeneral}[5]{
   \begin{adjustwidth}{0.3em}{0em}%
-  \textbf{#1}~\cdot~#2\sourceatright{\Date \small #3}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3~--~#4}%
   \begin{adjustwidth}{0.5em}{2.75em}
     \begin{flushleft}
       {
         \Merriweather \small
-        \fontdimen3\font=\origiwstr% (original) inter word stretch
-        \fontdimen2\font=0.27em% inter word space
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #5
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryProject}[4]{
+  \begin{adjustwidth}{0.3em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #4
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryEducation}[4]{
+  \begin{adjustwidth}{0.3em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
         #4
       }%
     \end{flushleft}
@@ -98,8 +136,8 @@
     \begin{flushleft}
       {
         \Merriweather \small
-        \fontdimen2\font=0.27em% inter word space
-        \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
         #3
       }
     \end{flushleft}
@@ -164,8 +202,8 @@
   \begin{tabular}{rc}
     % (905) 407--6282 & \phone\\
     \url{bmdolny@uwaterloo.ca} & \email\\
-    \url{github.com/brookedolny} & \github\\
-    \url{linkedin.com/in/brookedolny} & \linkedin
+    \href{https://github.com/brookedolny}{\texttt{github.com/brookedolny}} & \github\\
+    \href{https://linkedin.com/in/brookedolny}{\texttt{linkedin.com/in/brookedolny}} & \linkedin
     \vspace{-0.08em}
     \end{tabular}%\\  \hline
 \end{tabular*}
@@ -203,7 +241,7 @@
 % WORK EXPERIENCE
 \section*{Experience}
 
-\entryGeneral{Undergraduate Research Assistant}{Institute for Quantum Computing}{Jan 2021--Apr 2021}{
+\entryGeneral{Undergraduate Research Assistant}{Institute for Quantum Computing}{Jan 2021}{Apr 2021}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
@@ -221,7 +259,7 @@
     \end{itemize}
 }
 
-\entryGeneral{Software Developer Intern}{NVIDIA}{May 2020--Aug 2020}{
+\entryGeneral{Software Developer Intern}{NVIDIA}{May 2020}{Aug 2020}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
@@ -243,7 +281,7 @@
     \end{itemize}
 }
 
-\entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019--Dec 2019}{
+\entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019}{Dec 2019}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
@@ -261,7 +299,7 @@
     \end{itemize}
 }
 
-\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019--Apr 2019}{
+\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019}{Apr 2019}{
     \begin{itemize}
         \itemsep 0.3em
         \item {
@@ -279,7 +317,7 @@
     \end{itemize}
 }
 
-\entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018--Aug 2018}{
+\entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018}{Aug 2018}{
   \begin{itemize}
     \itemsep 0.3em
     \item{
@@ -300,7 +338,7 @@
 % Projects
 \section*{Projects}
 
-\entryGeneral{Personal Cryptographic Library}{C}{Apr 2019}{
+\entryProject{Personal Cryptographic Library}{C}{Apr 2019}{
   \begin{itemize}
     \itemsep 0.3em
     \item{
@@ -310,7 +348,7 @@
   \end{itemize}
 }
 
-\entryGeneral{Fractal Generator}{Java}{Apr 2018}{
+\entryProject{Fractal Generator}{Java}{Apr 2018}{
   \begin{itemize}
     \itemsep 0.3em
     \item{
@@ -326,7 +364,7 @@
 
 %%%%%%%%% EDUCATION
 \section*{Education}
-\entryGeneral{Candidate for Bachelor of Software Engineering}{University of Waterloo}{2022}{
+\entryEducation{Candidate for Bachelor of Software Engineering}{University of Waterloo}{2022}{
     \begin{itemize}
         \itemsep 0.3em
         \item {

@@ -2,6 +2,7 @@
 
 *.aux
 *.log
+*.out
 memoir_manual.pdf
 
 # Binary files

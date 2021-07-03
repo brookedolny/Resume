@@ -6,8 +6,6 @@ clean:
 	rm -rf $(DOCUMENTS) *.aux *.log *.out
 
 %.pdf: %.tex icons/*.png
-	lualatex $^
-	lualatex $^
-	lualatex $^
+	xelatex $^
 
 .PHONY: all clean
