@@ -35,7 +35,7 @@
 %
 \setmainfont[Ligatures=TeX, BoldFont=Lato-Bold]{Lato}
 
-\setmonofont[Ligatures=TeX]{IBMPlexMono}
+\setmonofont[Ligatures=TeX]{IBM Plex Mono}
 % \setmonofont[Ligatures=TeX]{Lato}
 % \setmonofont[Ligatures=TeX]{Menlo-Regular}
 
@@ -88,6 +88,23 @@
         % \fontdimen3\font=\origiwstr% (original) inter word stretch
         % \fontdimen2\font=0.27em% inter word space
         #5
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryGeneralMultipleDates}[7]{
+  \begin{adjustwidth}{0.3em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3~--~#4~$\cdot$~#5~--~#6}%\sourceatright{\Date \small #5~--~#6}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #7
       }%
     \end{flushleft}
   \end{adjustwidth}
@@ -241,23 +258,17 @@
 % WORK EXPERIENCE
 \section*{Experience}
 
-\entryGeneral{Software Developer}{Autodesk Research}{May 2022}{Dec 2022}{
-    \begin{itemize}
-        \itemsep 0.3em
-            \item {
-                Contributed to Autodesk Research's Neon Project for multi-GPU grid-based computations.
-            }
-            \item {
-                Implemented 2D and 3D GPU-accelerated Lattice-Boltzmann fluid simulations using Neon.
-            }
-            \item {
-                Generated animations of 2D and 3D lid-driven cavity flow and a 2D
-                K\'{a}rm\'{a}n vortex street.
-            }
-    \end{itemize}
-}
+% \entryGeneral{Software Developer}{Autodesk Research}{May 2022}{Dec 2022}{
+%     \begin{itemize}
+%         \itemsep 0.3em
+%             \item {
+%                 Contributed to Autodesk Research's Neon Project for multi-GPU grid-based computations.
+%             }
 
-\entryGeneral{Software Developer Intern}{Autodesk Research}{Sept 2021}{Dec 2021}{
+%     \end{itemize}
+% }
+
+\entryGeneralMultipleDates{Software Developer Intern}{Autodesk Research}{May 2022}{Dec 2022}{Sept 2021}{Dec 2021}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
@@ -269,6 +280,9 @@
             \item {
                 Generated animations of 2D and 3D lid-driven cavity flow and a 2D
                 K\'{a}rm\'{a}n vortex street.
+            }
+            \item {
+                Implemented a mesh-based finite element solver for linear elasticity.
             }
     \end{itemize}
 }
@@ -369,7 +383,16 @@
 % ******************************************************************************
 % Projects
 
-% \section*{Projects}
+\section*{Projects}
+
+\entryProject{Staggered Grid Linear Elasticity Solver}{C++}{Feb 2023}{
+  \begin{itemize}
+    \itemsep 0.3em
+    \item{
+      Implemented a finite-difference solver for the linear elasticity equations on a staggered grid 
+    }
+  \end{itemize}
+}
 
 % \entryProject{Personal Cryptographic Library}{C}{Apr 2019}{
 %   \begin{itemize}
@@ -419,10 +442,10 @@
     \end{itemize}
 }
 
-% \section*{Interests}
-% {
-%     \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Math
-% }
+\section*{Interests}
+{
+    \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Math
+}
 
 
 %
