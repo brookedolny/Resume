@@ -1,0 +1,655 @@
+\documentclass[oneside, 11pt]{memoir}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{graphbox}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+% \usepackage{titlesec}
+
+% ------------------------------------------------------------------------------
+% PAGE STYLING
+%
+\pagestyle{plain}
+\makeevenfoot{plain}{}{}{}
+\makeoddfoot{plain}{}{}{}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.3em}
+\setlength{\partopsep}{0.3em}
+
+\setheadfoot{0.3em}{0.3em}
+\setlrmarginsandblock{0.75in}{0.75in}{*} % left/right margins
+\setulmarginsandblock{0.6in}{0.6in}{*} % upper/lower margins
+
+\checkandfixthelayout
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% FONT STYLING
+%
+\setmainfont[Ligatures=TeX, BoldFont=Lato-Bold]{Lato}
+
+\setmonofont[Ligatures=TeX]{IBM Plex Mono}
+% \setmonofont[Ligatures=TeX]{Lato}
+% \setmonofont[Ligatures=TeX]{Menlo-Regular}
+
+% \newfontfamily\Merriweather{Merriweather-Light}[Ligatures=TeX]
+\newfontfamily{\Merriweather}{Lora}[Ligatures=TeX]
+
+% \newfontfamily\Date{Merriweather-Light-Italic}[Ligatures=TeX]
+\newfontfamily\Date{Lora-Italic}[Ligatures=TeX]
+
+
+\definecolor{titlecolor}{HTML}{1A237E} %% dark purple
+\definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
+\definecolor{textcolor}{HTML}{262626} %% charcoal grey
+
+\newcommand{\TitleFont}[1]{\textnormal{\fontsize{30pt}{0}\selectfont #1}}
+\makeheadstyles{default}{
+  \setaftersecskip{0.3em}
+  \setbeforesecskip{0.5em}
+  \setsecheadstyle{\normalfont\large\bfseries\raggedright\color{headercolor}}%
+}
+\headstyles{default}
+
+
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% RESUME "ENTRY" COMMANDS
+%
+
+\newdimen\origiwspc%
+\newdimen\origiwstr%
+\origiwspc=\fontdimen2\font% original inter word space
+\origiwstr=\fontdimen3\font% original inter word stretch
+% \fontdimen3\font=\origiwstr% (original) inter word stretch
+% \fontdimen2\font=0.25em% inter word space
+
+\newcommand{\lmr}[0]{\fontfamily{lmr}\selectfont} % Latin Modern Roman
+\newcommand{\LaTeXSkill}[0]{\lmr \LaTeX}
+
+\newcommand{\spaceddot}[0]{~$\cdot$~}
+
+\newcommand{\entryGeneral}[5]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3~--~#4}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #5
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryGeneralMultipleDates}[7]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3~--~#4~$\cdot$~#5~--~#6}%\sourceatright{\Date \small #5~--~#6}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #7
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryProject}[4]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #4
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryList}[1]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  % \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #1
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entryEducation}[4]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3}%
+  \begin{adjustwidth}{0.5em}{2.75em}
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        % \fontdimen2\font=0.27em% inter word space
+        #4
+      }%
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entrySimple}[3]{
+  \begin{adjustwidth}{0.4em}{0em}%
+  \textbf{#1}\sourceatright{\Date \small #2}%
+  \begin{adjustwidth}{0.5em}{2.75em}%
+    \begin{flushleft}
+      {
+        \Merriweather \small
+        % \fontdimen2\font=0.27em% inter word space
+        % \fontdimen3\font=\origiwstr% (original) inter word stretch
+        #3
+      }
+    \end{flushleft}
+  \end{adjustwidth}
+  \end{adjustwidth}
+  % \hfill
+}
+
+\newcommand{\entrySkills}[2]{
+  % \vspace{-0.2em}
+  \begin{adjustwidth}{2.75em}{0em}%
+  {\Merriweather \small #1}\spaceddot{\Merriweather \small #2}
+  \end{adjustwidth}
+  \vspace{-0.2em}
+}
+
+% \newcommand{\entrySkills}[4]{
+%   % \vspace{-0.2em}
+%   \begin{adjustwidth}{0.3em}{0em}%
+%   \textbf{#1}\spaceddot{\small #2}\sourceatright{\textbf{#3}\spaceddot {\small #4}}
+%   \end{adjustwidth}
+%   % \vspace{-0.2em}
+% }
+
+% \newcommand{\entrySkills}[2]{
+%   \vspace{-0.2em}
+%   \begin{adjustwidth}{0.3em}{0em}%
+%   \textbf{#1}\qquad{#2}%
+%   \end{adjustwidth}
+%   \vspace{-0.2em}
+% }
+
+%
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% ICONS
+
+\newcommand{\github}{\includegraphics[align=b,height=0.8em]{icons/github.png}}
+\newcommand{\linkedin}{\includegraphics[align=b,height=0.8em]{icons/in.png}}
+\newcommand{\email}{\includegraphics[align=b,height=0.8em]{icons/email.png}}
+\newcommand{\phone}{\includegraphics[align=b,height=0.8em]{icons/phone.png}}
+\newcommand{\web}{\includegraphics[align=b,height=0.8em]{icons/website.png}}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% RESUME
+%
+\begin{document}
+
+\color{textcolor}
+% ******************************************************************************
+% TITLE
+    %% with byline
+  % \TitleFont{Brooke Dolny} \newline {\textbullet \textsc{ 2A Software Engineering } \textbullet}
+
+\begin{tabular*}{\textwidth}{p{20em}@{\extracolsep{\fill}}r}%
+  \TitleFont{\color{titlecolor} Brooke Dolny}
+
+  {\textnormal{Computer Graphics Researcher}}
+  &
+  \begin{tabular}{rc}
+    % (905) 407--6282 & \phone\\
+    \url{bmdolny@uwaterloo.ca} & \email\\
+    % \href{https://github.com/brookedolny}{\texttt{github.com/brookedolny}} & \github\\
+    \href{https://brookedolny.github.io}{\texttt{brookedolny.github.io}} & \web\\
+    \href{https://linkedin.com/in/brookedolny}{\texttt{linkedin.com/in/brookedolny}} & \linkedin
+    \vspace{-0.08em}
+    \end{tabular}%\\  \hline
+\end{tabular*}
+{\color{titlecolor} \rule{\textwidth}{0.1em}}
+
+
+% \section*{Languages and Technologies}
+%     \entrySkills{
+%         C++ \spaceddot C \spaceddot Python \spaceddot Rust \spaceddot CUDA
+%         \spaceddot C\# \spaceddot Java \spaceddot Bash \spaceddot MATLAB
+%     }{
+%         Git \spaceddot UNIX \spaceddot Makefile \spaceddot \LaTeXSkill
+%     }
+
+% \section*{Skills}
+%     \entrySkills{Languages}{
+%         C++ \spaceddot C \spaceddot C\# \spaceddot Python \spaceddot Java \spaceddot Bash
+%     }{Technologies}{
+%         Git \spaceddot UNIX \spaceddot gdb \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
+%     }
+
+
+% \section*{Skills}
+%     \entrySkills{Languages}{
+%         C++ \spaceddot C \spaceddot C\# \spaceddot Python \spaceddot Java \spaceddot Bash \spaceddot Javascript
+%     }
+%     \entrySkills{Technologies}{
+%         Git \spaceddot UNIX \spaceddot QNX \spaceddot gdb \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
+%     }
+
+
+%%%%%%%%% EDUCATION
+\section*{Education}
+\entryEducation{Candidate for Master's of Mathematics}{University of Waterloo}{2024}{
+    \begin{itemize}
+        % \itemsep 0.3em
+        \item {
+            Supervised by Prof. Christopher Batty
+        }
+        \item {
+            Relevant coursework includes numerical methods for partial differential equations, computational linear algebra, physics-based animation.  
+        }
+    \end{itemize}
+}
+
+
+\entryEducation{Bachelor of Software Engineering}{University of Waterloo}{2022}{
+    \begin{itemize}
+        % \itemsep 0.3em
+        \item {
+            Graduated with Distinction
+        }
+        \item {
+            Class academic representative for 3B, 4A, and 4B terms.
+        }
+        \item {
+          Relevant coursework includes numerical computation, introduction to computer graphics, programming for performance, concurrent and parallel programming.
+        }
+    \end{itemize}
+}
+
+
+%
+% ******************************************************************************
+% ******************************************************************************
+% WORK EXPERIENCE
+\section*{Research Experience}
+
+% \entryGeneral{Software Developer}{Autodesk Research}{May 2022}{Dec 2022}{
+%     \begin{itemize}
+%         % \itemsep 0.3em
+%             \item {
+%                 Contributed to Autodesk Research's Neon Project for multi-GPU grid-based computations.
+%             }
+
+%     \end{itemize}
+% }
+
+\entryGeneralMultipleDates{Software Developer Intern}{Autodesk Research}{May 2022}{Dec 2022}{Sept 2021}{Dec 2021}{
+    \begin{itemize}
+        % \itemsep 0.3em
+            \item {
+                Contributed to Autodesk Research's Neon Project for multi-GPU grid-based computations.
+            }
+            \item {
+                Implemented physics-based simulations for benchmarking and performance evaluation.
+            }
+            \item {
+                Implemented 2D and 3D GPU-accelerated Lattice-Boltzmann fluid simulations using Neon.
+            }
+            \item {
+                Generated animations of 2D and 3D lid-driven cavity flow and a 2D
+                K\'{a}rm\'{a}n vortex street.
+            }
+            \item {
+                Implemented a mesh-based finite element solver for linear elasticity.
+            }
+    \end{itemize}
+}
+
+\entryGeneral{Undergraduate Research Assistant}{Institute for Quantum Computing}{Jan 2021}{Apr 2021}{
+    \begin{itemize}
+        % \itemsep 0.3em
+            \item {
+                Implemented a processing pipeline from an EMCCD camera directly to an NVIDIA GPU for image processing and identifying atoms.
+            }
+            \item {
+                Implemented a library for acquiring and transferring images via GPU Direct.
+            }
+            \item {
+                Leveraged image processing techniques to identify the location of atoms in an image.
+            }
+            \item {
+                Implemented Python wrapper libraries to simplify sequences of C API calls for acquiring and transferring images from an EMCCD Camera.
+            }
+            \item {
+                Developed a mathematical model to generate test data of images of atoms in optical traps based on real image data.
+            }
+    \end{itemize}
+}
+
+\section*{Teaching Experience}
+
+% CS 343
+\entryGeneralMultipleDates{Concurrency TA}{University of Waterloo}{Sept 2023}{Dec 2023}{Sept 2024}{Dec 2024}{
+    \begin{itemize}
+        % \itemsep 0.3em
+      \item {
+          Teaching assistant for third year concurrent and parallel programming course.
+      }
+      \item {
+          Topics include coroutines, atomics, locks, semaphores, high-level concurrency structures, shared memory, deadlock, 
+          and interprocess communication.
+      }
+      \item {
+          Graded biweekly assignments while identifying concurrency bugs in the code based on erroneous output and implementation errors.
+      }
+      \item { 
+          Assisted other teaching assitants marking assignments to ensure cohesive grading.
+      }
+    \end{itemize}
+}
+
+% CS 475/675
+\entryGeneral{Computational Linear Algebra TA}{University of Waterloo}{May 2024}{Aug 2024}{
+    \begin{itemize}
+        % \itemsep 0.3em
+        \item {
+          Teaching assistant for a fourth year and graduate level computational linear algebra course. 
+        }
+        \item { 
+            Topics include matrix decompositions, direct and indirect methods for solving systems, least 
+          squares problems, and eigenvalue decompositions.
+        }
+        \item {
+            Responded to questions from students on assignment topics and sample problems.
+        }
+    \end{itemize}
+}
+
+% CS 370
+\entryGeneralMultipleDates{Numerical Computation TA}{University of Waterloo}{May 2023}{Aug 2023}{Jan 2024}{Apr 2024}{
+    \begin{itemize}
+        % \itemsep 0.3em
+        \item{
+          Teaching assistant for a third year numerical computation computer science course.
+        }
+        \item { 
+          Topics include floating point number systems, splines, numerical solutions to differential equations, and
+          fourier transforms. 
+        }
+        \item {
+          Recorded assignment solution videos with explainations and common mistakes with advice on how to solve the problem.
+        }
+        \item {
+          Graded over 150 biweekly assignments while coordinating with other teaching assistants.
+        }
+    \end{itemize}
+}
+
+% \entryGeneral{CS 343 Teaching Assistant}{University of Waterloo}{Sept 2023}{Dec 2023}{
+%     \begin{itemize}
+%         % \itemsep 0.3em
+
+%     \end{itemize}
+% }
+
+% \entryGeneral{CS 370 Teaching Assistant}{University of Waterloo}{May 2023}{Aug 2023}{
+%     \begin{itemize}
+%         % \itemsep 0.3em
+
+%     \end{itemize}
+% }
+
+% \entryGeneral{Introduction to Programing Teaching Assistant}{University of Waterloo}{Jan 2023}{Apr 2023}{
+%     \begin{itemize}
+%         % \itemsep 0.3em
+
+%     \end{itemize}
+% }
+
+
+\section*{Work Experience}
+
+\entryGeneral{Software Developer Intern}{NVIDIA}{May 2020}{Aug 2020}{
+    \begin{itemize}
+        % \itemsep 0.3em
+            \item {
+                Contributed to the NVIDIA Omniverse Platform's C++ audio processing library.
+            }
+            \item {
+                Replaced unnecessary busy waiting with semaphores in the audio processing engine.
+            }
+            \item {
+                Identified and removed concurrency bugs in the codebase.
+            }
+            \item {
+                Designed and implemented an audio interface containing sound clearing and volume
+                adjustment operations.
+            }
+            \item {
+                Resolved synchronization issues between Python and C++ audio libraries.
+            }
+    \end{itemize}
+}
+
+\entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019}{Dec 2019}{
+    \begin{itemize}
+        % \itemsep 0.3em
+            \item {
+                Developed security solutions for vehicles by integrating Cylance technologies into QNX.
+            }
+            \item {
+                Designed a consumer-producer system in C++ for processing vehicle messages efficiently.
+            }
+            \item {
+                Implemented a state machine in C\# for identifying a driver based on vehicle data.
+            }
+            \item {
+                Wrote an asynchronous interface for receiving messages from a gRPC stream.
+            }
+    \end{itemize}
+}
+
+\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019}{Apr 2019}{
+    \begin{itemize}
+        % \itemsep 0.3em
+        \item {
+            Developed secure vehicle to vehicle communication with C++.
+         }
+         \item{
+            Implemented a parallelized manager for validating the format of messages.
+         }
+         \item{
+            Identified and resolved race conditions throughout the codebase.
+         }
+         \item{
+            Modernized C++98 codebase to C++14.
+         }
+    \end{itemize}
+}
+
+% \entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018}{Aug 2018}{
+%   \begin{itemize}
+%     % \itemsep 0.3em
+%     \item{
+%       Fixed bug in hashing function allowing over 8000 users to login after weeks of lockout.
+%     }
+%     \item{
+%       Designed an API endpoint that resulted in up to 4.5x faster page load times for a web app.
+%     }
+%     \item{
+%       Created a report on security flaws and vulnerabilities in C, C++, and Javascript codebases.
+%     }
+%   \end{itemize}
+% }
+
+%
+% ******************************************************************************
+% ******************************************************************************
+% Projects
+
+\section*{Projects}
+
+\entryProject{Staggered Grid Linear Elasticity Solver}{C++}{Nov 2024}{
+  \begin{itemize}
+    % \itemsep 0.3em
+    \item {
+      Implemented a finite-difference solver for the linear elasticity equations on a staggered grid.
+    }
+    \item { 
+      Designed a general staggered grid data structure that allows for general Dirichlet and Neumann boundary conditions.
+    }
+    \item {
+      Derived a volume fraction form of Neumann boundary conditions for linear elasticity using a variational approach.
+    }
+  \end{itemize}
+}
+
+% \entryProject{Constant Weight Codeword PIR}{Rust}{Aug 2023}{
+%   \begin{itemize}
+%     % \itemsep 0.3em
+%     \item{
+%       Content
+%     }
+%   \end{itemize}
+% }
+
+\entryProject{Caffeine Symbolic Engine}{C++}{Apr 2022}{
+  \begin{itemize}
+    % \itemsep 0.3em
+    \item{
+      Four-person group collaborative software engineering capstone fourth year design project.
+    }
+    \item {
+      Implemented a symbolic execution engine that executes a program in LLVM bytecode symbolically and identifies bugs.
+    }
+    \item {
+      Identifies common bugs such as null pointer dereferences, array index out of bounds, division by zero, and custom user assertions.
+    }
+    \item {
+      Project is open source and available on Github at \href{https://github.com/insufficiently-caffeinated/caffeine}{\texttt{insufficiently-caffeinated/caffeine}}
+    }
+  \end{itemize}
+}
+
+\entryProject{Ray Tracer Animation}{C++}{Aug 2021}{
+  \begin{itemize}
+    % \itemsep 0.3em
+    \item{
+      Computer graphics (CS488) final project animation generated with a ray tracer implemented during the course.
+    }
+    \item {
+      Implemented a functional ray tracer with time-varying rigid body animation, particle systems.
+    }
+    \item {
+      Utilized OpenMP to parallelize the ray tracer to improve performance.
+    }
+  \end{itemize}
+}
+
+% \entryProject{Math Algorithms}{C++, MATLAB}{May 2023}{
+%   \begin{itemize}
+%     % \itemsep 0.3em
+%     \item{
+%       Ray tracer course project
+%     }
+%   \end{itemize}
+% }
+
+% \entryProject{Personal Cryptographic Library}{C}{Apr 2019}{
+%   \begin{itemize}
+%     % \itemsep 0.3em
+%     \item{
+%       Developed a working implementation of the AES with CBC and ECB operational modes,
+%       and the SHA2 suite of cryptographic hashes.
+%     }
+%   \end{itemize}
+% }
+
+% \entryProject{Fractal Generator}{Java}{Apr 2018}{
+%   \begin{itemize}
+%     % \itemsep 0.3em
+%     \item{
+%         A fractal art generating program that supports the
+%         Mandelbrot and Julia sets.
+%     }
+%     \item{
+%         Leverages parallel programming to improve performance by using a worker pool.
+%     }
+%   \end{itemize}
+% }
+
+\section*{Awards}
+
+\entryList{
+  \begin{itemize}
+  % \itemsep 0.3em
+    \item{
+        President's Scholarship with Distinction ~$\cdot$~ University of Waterloo ~$\cdot$~ \emph{2017}.
+    }
+    \item{
+        Leslie Woo Entrance Scholarship for Women in STEM ~$\cdot$~ University of Waterloo ~$\cdot$~ \emph{2017}.
+    }
+  \end{itemize}
+}
+
+
+\section*{Interests}
+{
+    \Merriweather \small \quad \quad \quad Ice Hockey, Biking, Classical Music, Audio and Photo Restoration, Minesweeper
+}
+
+
+%
+% ******************************************************************************
+
+% Brooke was an excellent TA who carried out her duties diligently. 
+% Notably, she was one of two double-TAs for CS370 this semester, 
+% and one of her duties was to prepare assignment solution videos for some of the assignments. 
+% She did a great job with it, which I know the students really appreciated. 
+% I look forward to working her again in a future semester.
+
+% Brooke was a pleasure to work with. I appreciated her positive attitude, and thoroughness. 
+% She did a good job of answering questions on Piazza.
+
+% Brooke did an excellent job as a TA for CS116 this term. Brooke's marking was 
+% outstanding and the feedback was thorough which I am sure the students appreciated. 
+%Brooke also asked relevant and important questions about assignment marking. Great job Brooke!
+
+\end{document}
+% ------------------------------------------------------------------------------
+\endinput
