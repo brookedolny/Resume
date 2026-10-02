@@ -23,8 +23,8 @@
 \setlength{\partopsep}{0.3em}
 
 \setheadfoot{0.3em}{0.3em}
-\setlrmarginsandblock{0.75in}{0.75in}{*} % left/right margins
-\setulmarginsandblock{0.6in}{0.6in}{*} % upper/lower margins
+\setlrmarginsandblock{0.45in}{0.45in}{*} % left/right margins
+\setulmarginsandblock{0.4in}{0.4in}{*} % upper/lower margins
 
 \checkandfixthelayout
 %
@@ -50,10 +50,10 @@
 \definecolor{headercolor}{HTML}{283593} %% slightly lighter purple
 \definecolor{textcolor}{HTML}{262626} %% charcoal grey
 
-\newcommand{\TitleFont}[1]{\textnormal{\fontsize{30pt}{0}\selectfont #1}}
+\newcommand{\TitleFont}[1]{\textnormal{\fontsize{36pt}{0}\selectfont #1}}
 \makeheadstyles{default}{
   \setaftersecskip{0.3em}
-  \setbeforesecskip{0.5em}
+  \setbeforesecskip{0.3em}
   \setsecheadstyle{\normalfont\large\bfseries\raggedright\color{headercolor}}%
 }
 \headstyles{default}
@@ -81,7 +81,7 @@
 \newcommand{\entryGeneral}[5]{
   \begin{adjustwidth}{0.3em}{0em}%
   \textbf{#1}~$\cdot$~#2\sourceatright{\Date \small #3~--~#4}%
-  \begin{adjustwidth}{0.5em}{2.75em}
+  \begin{adjustwidth}{0.5em}{0.75em}
     \begin{flushleft}
       {
         \Merriweather \small
@@ -197,6 +197,7 @@
 \newcommand{\linkedin}{\includegraphics[align=b,height=0.8em]{icons/in.png}}
 \newcommand{\email}{\includegraphics[align=b,height=0.8em]{icons/email.png}}
 \newcommand{\phone}{\includegraphics[align=b,height=0.8em]{icons/phone.png}}
+\newcommand{\link}{\includegraphics[align=c,height=1.1em]{icons/external-link.png}}
 % ------------------------------------------------------------------------------
 
 
@@ -211,29 +212,52 @@
     %% with byline
   % \TitleFont{Brooke Dolny} \newline {\textbullet \textsc{ 2A Software Engineering } \textbullet}
 
-\begin{tabular*}{\textwidth}{p{20em}@{\extracolsep{\fill}}r}%
-  \TitleFont{\color{titlecolor} Brooke Dolny}
-
-  {\textnormal{ Software Engineer}}
+\begin{tabular*}{\textwidth}{m{30em}@{\extracolsep{\fill}}r}%
+  % \hline
+  {\TitleFont{\color{titlecolor} Brooke Dolny}}
+  % {\textnormal{ Software Engineer}}
   &
-  \begin{tabular}{rc}
+    {\begin{tabular}{rr}
     % (905) 407--6282 & \phone\\
     \url{bmdolny@uwaterloo.ca} & \email\\
     \href{https://github.com/brookedolny}{\texttt{github.com/brookedolny}} & \github\\
     \href{https://linkedin.com/in/brookedolny}{\texttt{linkedin.com/in/brookedolny}} & \linkedin
-    \vspace{-0.08em}
-    \end{tabular}%\\  \hline
+    % \vspace{-0.08em}
+    \end{tabular}}%\\  \hline
 \end{tabular*}
 {\color{titlecolor} \rule{\textwidth}{0.1em}}
 
 
-\section*{Languages and Technologies}
-    \entrySkills{
-        C++ \spaceddot C \spaceddot Python \spaceddot Rust \spaceddot CUDA
-        \spaceddot C\# \spaceddot Java \spaceddot Bash \spaceddot MATLAB
-    }{
-        Git \spaceddot UNIX \spaceddot Makefile \spaceddot \LaTeXSkill
-    }
+%%%%%%%%% EDUCATION
+\section*{Education}
+\entryEducation{Master of Mathematics}{University of Waterloo}{2026}{
+    \begin{itemize}
+        \itemsep 0.3em
+        \item {
+          Thesis: A Staggered Grid-Based Variational Approach for Modeling Elastic Deformation. \href{https://uwspace.uwaterloo.ca/items/3b4057ec-708c-4bf3-8c9e-f441ad458256}{\link} % 
+        }
+        \item {
+          Teaching assistant for numerical computation, computational linear algebra, and concurrency.
+        }
+        \item {
+          Supervised by Prof. Christopher Batty.
+        }
+    \end{itemize}
+}
+
+
+\entryEducation{Bachelor of Software Engineering}{University of Waterloo}{2022}{
+    \begin{itemize}
+        \itemsep 0.3em
+        \item {
+            Class academic representative, graduated with distinction.
+        }
+        % \item {
+        %     Class academic representative for 3B, 4A, and 4B terms.
+        % }
+    \end{itemize}
+}
+
 
 % \section*{Skills}
 %     \entrySkills{Languages}{
@@ -251,7 +275,6 @@
 %         Git \spaceddot UNIX \spaceddot QNX \spaceddot gdb \spaceddot Makefile \spaceddot Qt \spaceddot \LaTeXSkill
 %     }
 
-
 %
 % ******************************************************************************
 % ******************************************************************************
@@ -267,101 +290,111 @@
 
 %     \end{itemize}
 % }
+% \entryGeneral{Atlas Software}{}
 
-\entryGeneralMultipleDates{Software Developer Intern}{Autodesk Research}{May 2022}{Dec 2022}{Sept 2021}{Dec 2021}{
+\entryGeneral{Autodesk Research}{Software Developer Intern}{May 2022}{Dec 2022}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
                 Contributed to Autodesk Research's Neon Project for multi-GPU grid-based computations.
             }
             \item {
-                Implemented 2D and 3D GPU-accelerated Lattice-Boltzmann fluid simulations using Neon.
+              Formulated a finite element method for staggered-grid linear elasticity for multi-GPU implementation in Neon and implemented a mesh-based finite element solver for linear elasticity. 
+            }
+            % \item {
+            %   Formulated FEM for staggered grid linear elasticity for multi-GPU implementation in Neon
+            % }
+    \end{itemize}
+}
+
+\entryGeneral{Autodesk Research}{Software Developer Intern}{Sept 2021}{Dec 2021}{
+    \begin{itemize}
+        \itemsep 0.3em
+            \item {
+                Implemented 2D and 3D multi-GPU-accelerated Lattice-Boltzmann method fluid simulations using Neon.
             }
             \item {
-                Generated animations of 2D and 3D lid-driven cavity flow and a 2D
-                K\'{a}rm\'{a}n vortex street.
-            }
-            \item {
-                Implemented a mesh-based finite element solver for linear elasticity.
+                Simulated 2D and 3D lid-driven cavity flow and a 2D
+                K\'{a}rm\'{a}n vortex street, with up to 23\% single-GPU performance improvement over stlbm in MLUPS.
             }
     \end{itemize}
 }
 
-\entryGeneral{Undergraduate Research Assistant}{Institute for Quantum Computing}{Jan 2021}{Apr 2021}{
+\entryGeneral{Institute for Quantum Computing}{Undergraduate Research Intern}{Jan 2021}{Apr 2021}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
-                Designed and implemented a Python library for transferring images via GPU Direct.
+                Built a library for transferring images to an EMCCD camera via GPU Direct, reducing latency by 50\%.
             }
             \item {
-                Leveraged image processing techniques to identify the location of atoms in an image.
+                Leveraged image processing techniques to identify the location of atoms in an image, 
+                achieving approximately 15\% more accuracy than existing methods on experimental data.
             }
             \item {
-                Implemented Python libraries to perform image acquisition from an EMCCD Camera.
-            }
-            \item {
-                Developed a model to generate images of atoms in optical traps.
+                Developed a model to generate noisy test data of atoms in optical traps based on experimental image data.
             }
     \end{itemize}
 }
 
-\entryGeneral{Software Developer Intern}{NVIDIA}{May 2020}{Aug 2020}{
+\entryGeneral{NVIDIA}{Software Developer Intern}{May 2020}{Aug 2020}{
     \begin{itemize}
         \itemsep 0.3em
             \item {
-                Contributed to the NVIDIA Omniverse Platform's C++ audio processing library.
+                Contributed to the NVIDIA Omniverse Platform's C++ audio processing engine and libraries for spatial audio in Universal Scene Descriptions and audio editing, with over 150,000 users.
             }
             \item {
-                Replaced unnecessary busy waiting with semaphores in the audio processing engine.
+                Replaced busy waiting with semaphores in the audio processing engine, reducing CPU time by up to 10\%.
             }
             \item {
-                Identified and removed concurrency bugs in the codebase.
+                Identified and removed concurrency bugs in the codebase, preventing race conditions that caused failure of the audio interface.
             }
             % \item {
             %     Designed and implemented an audio utilities interface containing sound clearing and volume
             %     adjustment operations.
             % }
-            \item {
-                Resolved synchronization issues between Python and C++ audio libraries.
-            }
+            % \item {
+            %     Resolved synchronization issues between Python and C++ audio libraries.
+            % }
     \end{itemize}
 }
 
-\entryGeneral{Software Development Student (Core OS)}{BlackBerry}{Sept 2019}{Dec 2019}{
+\entryGeneral{Blackberry}{Software Development Student (Core OS)}{Sept 2019}{Dec 2019}{
     \begin{itemize}
         \itemsep 0.3em
+% Implemented demonstration for CES with Range Rover vehicles by integrating malware detection with the QNX operating system.
+% Designed a parallel multi-consumer-producer system in C++ for processing vehicle messages efficiently
             \item {
-                Developed security solutions for vehicles by integrating Cylance technologies into QNX.
+              Implemented a demonstration for the Consumer Electronics Show (CES) in Range Rover vehicles by integrating malware detection with the QNX operating system.
             }
             \item {
-                Designed a consumer-producer system in C++ for processing vehicle messages efficiently.
+              Designed a parallel multi-consumer-producer system in C++ for processing vehicle messages efficiently.
             }
-            \item {
-                Implemented a state machine in C\# for identifying a driver based on vehicle data.
-            }
-            \item {
-                Wrote an asynchronous interface for receiving messages from a gRPC stream.
-            }
+            % \item {
+            %     Implemented a state machine in C\# for identifying a driver based on vehicle data with an asynchronous interface for message passing with a gRPC stream.
+            % }
+            % \item {
+            %     Wrote an asynchronous interface for receiving messages from a gRPC stream.
+            % }
     \end{itemize}
 }
 
-\entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019}{Apr 2019}{
-    \begin{itemize}
-        \itemsep 0.3em
-        \item {
-            Developed secure vehicle to vehicle communication with C++.
-         }
-         \item{
-            Implemented a parallelized manager for validating the format of messages.
-         }
-         \item{
-            Identified and resolved race conditions throughout the codebase.
-         }
-         % \item{
-         %    Modernized C++98 codebase to C++14.
-         % }
-    \end{itemize}
-}
+% \entryGeneral{Secure Software Developer}{ESCRYPT}{Jan 2019}{Apr 2019}{
+%     \begin{itemize}
+%         \itemsep 0.3em
+%         \item {
+%             Developed secure vehicle to vehicle communication with C++.
+%          }
+%          \item{
+%             Implemented a parallelized manager for validating the format of messages.
+%          }
+%          \item{
+%             Identified and resolved race conditions throughout the codebase.
+%          }
+%          % \item{
+%          %    Modernized C++98 codebase to C++14.
+%          % }
+%     \end{itemize}
+% }
 
 % \entryGeneral{C++/Backend Developer}{DF/Net Software}{May 2018}{Aug 2018}{
 %   \begin{itemize}
@@ -385,12 +418,26 @@
 
 \section*{Projects}
 
-\entryProject{Staggered Grid Linear Elasticity Solver}{C++}{Feb 2023}{
+\entryProject{Staggered Grid-Based Elasticity Physics Simulation}{C++}{Dec 2025}{
   \begin{itemize}
-    \itemsep 0.3em
+    % \itemsep 0.3em
     \item{
-      Implemented a finite-difference solver for the linear elasticity equations on a staggered grid 
+      Implementation of a variational staggered grid-based finite-difference linear elasticity physics simulation achieveing 1.5 order error, only requiring an indicator function representing the simulated object.
     }
+  \end{itemize}
+}
+
+\entryProject{Caffeine Symbolic Engine}{C++ \spaceddot \href{https://github.com/insufficiently-caffeinated/caffeine}{\link}}{Apr 2022}{
+  \begin{itemize}
+    % \itemsep 0.3em
+    \item {
+      Implemented a symbolic execution engine that executes a program in LLVM bytecode symbolically, and identifies common bugs 
+      such as null pointer dereferences, array index out of bounds, division by zero, and custom user assertions.
+    }
+    % \item {
+    %   Identifies common bugs such as null pointer dereferences, array index out of bounds, division by zero, and custom user assertions.
+    % } % \href{https://github.com/insufficiently-caffeinated/caffeine}{\texttt{insufficiently-caffeinated/caffeine}}
+
   \end{itemize}
 }
 
@@ -417,35 +464,18 @@
 %   \end{itemize}
 % }
 
+\section*{Languages and Technologies}
+    \entrySkills{
+        C++ \spaceddot C \spaceddot Python \spaceddot Rust \spaceddot CUDA
+        \spaceddot MATLAB \spaceddot C\# \spaceddot Java \spaceddot Bash 
+    }{
+        Git \spaceddot UNIX \spaceddot Makefile \spaceddot CMake \spaceddot \LaTeXSkill
+    }
 
-%%%%%%%%% EDUCATION
-\section*{Education}
-\entryEducation{Candidate for Master's of Mathematics}{University of Waterloo}{2024}{
-    \begin{itemize}
-        \itemsep 0.3em
-        \item {
-            Supervised by Prof. Christopher Batty
-        }
-    \end{itemize}
-}
-
-
-\entryEducation{Bachelor of Software Engineering}{University of Waterloo}{2022}{
-    \begin{itemize}
-        \itemsep 0.3em
-        \item {
-            Graduated with Distinction
-        }
-        \item {
-            Class academic representative for 3B, 4A, and 4B terms.
-        }
-    \end{itemize}
-}
-
-\section*{Interests}
-{
-    \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Math
-}
+% \section*{Interests}
+% {
+%     \Merriweather \small \quad \quad \quad Ice Hockey, Classical Music, Audio and Photo Restoration, Math
+% }
 
 
 %
